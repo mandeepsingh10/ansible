@@ -1,0 +1,17 @@
+---
+ - name: Install and start nginx
+   hosts: webservers
+   become: yes
+
+ 
+   tasks:
+    - name: ensure nginx is installed
+      apt: name=nginx update_cache=yes
+
+    - name: ensure nginx is running
+      service: name=nginx state=started
+
+    - name: add hostname to index.html
+      script:  script.sh
+      
+        

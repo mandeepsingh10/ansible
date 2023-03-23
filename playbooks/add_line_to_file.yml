@@ -1,0 +1,10 @@
+---
+- name: 'hosts'
+  hosts: all
+  become: yes
+  tasks:
+    - name: 'Append to /var/ww/html/index.html'
+      lineinfile:
+        path: '/var/www/html/index.html'
+        line: "Welcome to ansible-beginning course"
+        create: true
